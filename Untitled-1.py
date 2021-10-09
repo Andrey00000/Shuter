@@ -52,9 +52,9 @@ class Ball(Player):
     def update(self):
         self.rect.x += self.speed_x
         self.rect.y += self.speed_y
-        if self.rect.x >= wedth - 50 or self.rect.x ==0:
+        if self.rect.x >= wedth - 50 or self.rect.x <=0:
             self.speed_x *= -1
-        if self.rect.y >= height - 50 or self.rect.y ==0:
+        if self.rect.y >= height - 50 or self.rect.y <=0:
             self.speed_y *= -1
         if self.rect.x >= wedth - size_ball:
             global propusk
@@ -63,8 +63,8 @@ class Ball(Player):
             global score
             score += 1 
 ball = Ball(img_ball, 350, 250, size_ball, size_ball)
-ball.speed_x = 10
-ball.speed_y = 10
+ball.speed_x = 3
+ball.speed_y = 3
 finish = False
 run = True
 while run:
@@ -78,7 +78,7 @@ while run:
         place = text.get_rect(center = (50, 20))
         window.blit(text, place)
         text_lose = font.render("         Игрок №2: " + str(propusk), 1, (255, 0, 0))
-        place = text.get_rect(center =(50, 50))
+        place = text.get_rect(center = (50, 50))
         window.blit(text_lose, place)
 
         racket_1.update()
